@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="AccuSchedule.UI.Views.VisualEditor.DefaultNodeListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:NodeNetwork.Views.Controls;assembly=NodeNetwork"
+             xmlns:local="clr-namespace:AccuSchedule.UI.Views.VisualEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="320"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                        TextElement.FontWeight="Regular"
+                        TextElement.FontSize="13"
+                        TextOptions.TextFormattingMode="Ideal" 
+                        TextOptions.TextRenderingMode="Auto"        
+                        Background="{DynamicResource MaterialDesignPaper}"
+                        FontFamily="{DynamicResource MaterialDesignFont}"
+                       Focusable="True">
+    <UserControl.Resources>
+        <DataTemplate x:Key="tilesTemplate">
+            <Grid>
+                <controls:ViewModelViewHostNoAnimations VerticalAlignment="Top" Margin="0, 5, 0, 5" ViewModel="{Binding}" KeyboardNavigation.TabNavigation="None">
+                    <controls:ViewModelViewHostNoAnimations.LayoutTransform>
+                        <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                    </controls:ViewModelViewHostNoAnimations.LayoutTransform>
+                </controls:ViewModelViewHostNoAnimations>
+                <Grid Background="#01000000" MouseMove="OnNodeMouseMove" Cursor="Hand"/>
+                <!-- Overlay absorbs mouse events -->
+            </Grid>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="tilesItemsPanelTemplate">
+            <WrapPanel />
+        </ItemsPanelTemplate>
+        <ControlTemplate x:Key="tilesItemsControlTemplate">
+            <ItemsPresenter HorizontalAlignment="Stretch"/>
+        </ControlTemplate>
+
+        <DataTemplate x:Key="listTemplate">
+            <Grid HorizontalAlignment="Stretch" Margin="0, 0, 0, 0" MouseMove="OnNodeMouseMove">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource AccentColorBrush3}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <TextBlock Margin="10,5,5,5"><Run Text="{Binding Name}"/></TextBlock>
+                <Viewbox Stretch="Uniform" Width="10" Height="20" HorizontalAlignment="Right" Margin="5" Cursor="SizeAll">
+                    <Canvas Width="12.5" Height="30" Background="#01ffffff">
+                        <Rectangle Canvas.Left="0" Canvas.Top="0" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="7.5" Canvas.Top="0" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="0" Canvas.Top="7.5" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="7.5" Canvas.Top="7.5" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="0" Canvas.Top="15" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="7.5" Canvas.Top="15" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="0" Canvas.Top="22.5" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                        <Rectangle Canvas.Left="7.5" Canvas.Top="22.5" Width="4" Height="4" Fill="{DynamicResource AccentColorBrush}" Stroke="{DynamicResource AccentColorBrush}"/>
+                    </Canvas>
+                </Viewbox>
+            </Grid>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="listItemsPanelTemplate">
+            <StackPanel HorizontalAlignment="Stretch"/>
+        </ItemsPanelTemplate>
+        <ControlTemplate x:Key="listItemsControlTemplate">
+            <ItemsPresenter HorizontalAlignment="Stretch"/>
+        </ControlTemplate>
+    </UserControl.Resources>
+    
+    <ScrollViewer>
+        <StackPanel>
+            
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            
+                <TextBlock x:Name="titleLabel" Grid.Column="0" Margin="10, 0, 0, 0" Padding="0, 10, 0, 10" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="18" FontFamily="Segoe UI Semilight" Text="Blocks"/>
+
+                <Grid x:Name="searchBoxGrid" Grid.Column="1" Margin="25,7,25,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <TextBox x:Name="searchBox" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                    <TextBlock Margin="5, 0, 0, 0"  x:Name="emptySearchBoxMessage" Text="Search..." IsHitTestVisible="False" Foreground="LightGray" HorizontalAlignment="Stretch"/>
+                </Grid>
+            </Grid>
+
+            <Grid Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            
+                <ItemsControl x:Name="elementsList" IsTabStop="False">
+                    <ItemsControl.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.ContainerStyle>
+                                <Style TargetType="{x:Type GroupItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Expander Header="{Binding Name}" IsExpanded="True">
+                                                    <ItemsPresenter />
+                                                </Expander>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </GroupStyle.ContainerStyle>
+                        </GroupStyle>
+                    </ItemsControl.GroupStyle>
+
+                </ItemsControl>
+            
+                <TextBlock x:Name="emptyMessage" Text="No matching nodes found" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

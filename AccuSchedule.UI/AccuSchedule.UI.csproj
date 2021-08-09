@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F56EDA9-CF7F-4C49-A67B-3FCD434D4902}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccuSchedule</RootNamespace>
+    <AssemblyName>AccuSchedule</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\Store\hsmc%24\213\dept\ENG\import\AccuSchedule Setup Files\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>AccuSchedule</ProductName>
+    <PublisherName>HSM</PublisherName>
+    <SuiteName>Planning</SuiteName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8B4D23F8EFF13DDE796BF462E721DBBDB3A09DBD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>AccuSchedule.UI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AccuSchedule.UI_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Custom</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>accuschedule.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.0-beta1\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Report, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Report.0.2.0-beta1\lib\net46\ClosedXML.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicData, Version=6.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicData.6.14.3\lib\net461\DynamicData.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamitey, Version=2.0.9.136, Culture=neutral, PublicKeyToken=cbf53ea3aeb972c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dynamitey.2.0.9.136\lib\net40\Dynamitey.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="ImpromptuInterface, Version=7.0.1.0, Culture=neutral, PublicKeyToken=0b1781c923b2975b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImpromptuInterface.7.0.1\lib\net40\ImpromptuInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Jint, Version=0.0.0.0, Culture=neutral, PublicKeyToken=2e92ba9c8d81157f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jint.2.11.58\lib\net451\Jint.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.BoxIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.BoxIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Entypo, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Entypo.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.EvaIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.EvaIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.FeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.FontAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.FontAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Ionicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Ionicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.JamIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.JamIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Material.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialDesign, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.MaterialDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialLight, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.MaterialLight.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Microns, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Microns.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Octicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Octicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.PicolIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.PicolIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.RPGAwesome, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.RPGAwesome.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.SimpleIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.SimpleIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Typicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Typicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Unicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Unicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.WeatherIcons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.WeatherIcons.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Zondicons, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.3.5.0\lib\net47\MahApps.Metro.IconPacks.Zondicons.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.1.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.1.0\lib\net45\MaterialDesignThemes.MahApps.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.3\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq, Version=2.9.21302.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.2.9.0\lib\net40\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="NCalc, Version=1.3.8.0, Culture=neutral, PublicKeyToken=973cde3f1cafed03, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperXML.3.0.2.0\lib\net46\NCalc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.3.0\lib\net45\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Factory, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Extensions.Factory.3.3.2\lib\net45\Ninject.Extensions.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="Pharmacist.Common, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pharmacist.Common.1.5.3\lib\netstandard2.0\Pharmacist.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ReactiveUI, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveUI.11.1.20\lib\net461\ReactiveUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Events.WPF, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveUI.Events.WPF.11.1.20\lib\net461\ReactiveUI.Events.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.WPF, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReactiveUI.WPF.11.1.20\lib\net461\ReactiveUI.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=9.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.9.3.11\lib\net461\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat.Drawing, Version=9.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.Drawing.9.3.11\lib\net461\Splat.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperXML, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperXML.3.0.2.0\lib\net46\SuperXML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.0.9.2, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.Core.1.0.9.2\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=4.3.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.4.3.2\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AppExtensions.cs" />
+    <Compile Include="Extensions\AnonymousType.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\DialogExtensions.cs" />
+    <Compile Include="Extensions\FileExtensions.cs" />
+    <Compile Include="Extensions\FrameworkElementExtensions.cs" />
+    <Compile Include="Extensions\GridExtensions.cs" />
+    <Compile Include="Extensions\NotifyPropertyChangedExtension.cs" />
+    <Compile Include="Extensions\SaveLoadExtensions.cs" />
+    <Compile Include="Extensions\ServiceCollectionExtensions.cs" />
+    <Compile Include="Extensions\ToolsExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Interfaces\INodeProperties.cs" />
+    <Compile Include="Methods\DynamicDataRowGroup.cs" />
+    <Compile Include="Methods\DynamicObservable.cs" />
+    <Compile Include="Interfaces\IPreviewTable.cs" />
+    <Compile Include="Interfaces\IProcessingWindow.cs" />
+    <Compile Include="Interfaces\ISetting.cs" />
+    <Compile Include="Interfaces\ITabDragClient.cs" />
+    <Compile Include="Interfaces\IToolPlugin.cs" />
+    <Compile Include="Interfaces\IToolsProcessor.cs" />
+    <Compile Include="Models\NodeSaveDTO.cs" />
+    <Compile Include="Models\VisualEditor\Compiler\Errors\VariableOutOfScopeException.cs" />
+    <Compile Include="Models\VisualEditor\Compiler\ITypedExpression.cs" />
+    <Compile Include="Models\TabSetValues.cs" />
+    <Compile Include="Models\VisualEditor\DataSetValue.cs" />
+    <Compile Include="Models\VisualEditor\DataTableValues.cs" />
+    <Compile Include="Models\VisualEditor\DataTableValue.cs" />
+    <Compile Include="Models\VisualEditor\ITypedVariableDefinition.cs" />
+    <Compile Include="Interfaces\IViewBuilder.cs" />
+    <Compile Include="Methods\ExcelInputHandler.cs" />
+    <Compile Include="Methods\ExpandoJSONConverter.cs" />
+    <Compile Include="Methods\Tools.cs" />
+    <Compile Include="Models\VisualEditor\Compiler\CompilerContext.cs" />
+    <Compile Include="Models\VisualEditor\Compiler\IStatement.cs" />
+    <Compile Include="Models\VisualEditor\Compiler\Errors\CompilerException.cs" />
+    <Compile Include="Models\VisualEditor\ForLoop.cs" />
+    <Compile Include="Models\VisualEditor\FunctionCall.cs" />
+    <Compile Include="Models\VisualEditor\InlineVariableDefinition.cs" />
+    <Compile Include="Models\VisualEditor\IntLiteral.cs" />
+    <Compile Include="Models\VisualEditor\DataTableSequence.cs" />
+    <Compile Include="Models\VisualEditor\StatementSequence.cs" />
+    <Compile Include="Models\VisualEditor\StringLiteral.cs" />
+    <Compile Include="Models\VisualEditor\VariableReference.cs" />
+    <Compile Include="Plugins\Tools\ExportToTemplateTool.cs" />
+    <Compile Include="Plugins\Tools\BuildPaperWorkTool.cs" />
+    <Compile Include="Plugins\Tools\FilterOrdersTool.cs" />
+    <Compile Include="Plugins\Tools\CheckScrubHistoryTool.cs" />
+    <Compile Include="Plugins\Tools\PnXrefTool.cs" />
+    <Compile Include="Plugins\Tools\GroupOrdersTool.cs" />
+    <Compile Include="Plugins\Tools\BuildSchedulesTool.cs" />
+    <Compile Include="Plugins\Tools\ReconcileScheduleTool.cs" />
+    <Compile Include="Plugins\Tools\GenerateXMLTool.cs" />
+    <Compile Include="Plugins\Tools\ScrubWOsTool.cs" />
+    <Compile Include="Plugins\Tools\Views\HistoryModifications.xaml.cs">
+      <DependentUpon>HistoryModifications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ParamTab.cs" />
+    <Compile Include="ViewModels\ProjectSettings.cs" />
+    <Compile Include="ViewModels\PropertiesViewModel.cs" />
+    <Compile Include="ViewModels\QuestionDialogViewModel.cs" />
+    <Compile Include="ViewModels\SaveProjectDialogViewModel.cs" />
+    <Compile Include="ViewModels\ScopeViewModel.cs" />
+    <Compile Include="ViewModels\TableViewModel.cs" />
+    <Compile Include="ViewModels\DefaultView.cs" />
+    <Compile Include="Models\ToolID.cs" />
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\Tools\ScrubberTool.cs" />
+    <Compile Include="Test\TestSettingInterface.cs" />
+    <Compile Include="ViewModels\ToolProcessor.cs" />
+    <Compile Include="ViewModels\ViewTabs.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultConnectionViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultInputViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultListInputViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultNodeListViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultNodeViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultOutputViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultPendingConnectionViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\DefaultPortViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\Editors\DataSetEditorViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\Editors\VoidEditorViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\Editors\DataTableEditorViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\Editors\IntegerValueEditorViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\Editors\StringValueEditorViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\MainViewModel.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\ButtonEventNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\ObjListToDataSetNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\DataTableFromSetProcessingNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\DataSetFromTableProcessingNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\DataSetProcessingNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\ExportNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\DataTableStartNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\ForLoopNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\IntLiteralNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\DataTableProcessingNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\PrintNode.cs" />
+    <Compile Include="ViewModels\VisualEditor\Nodes\TextLiteralNode.cs" />
+    <Compile Include="Views\AppSettings.xaml.cs">
+      <DependentUpon>AppSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\QuestionDialog.xaml.cs">
+      <DependentUpon>QuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ValidFilePathValidationRule.cs" />
+    <Compile Include="Views\Dialogs\SaveProjectDialog.xaml.cs">
+      <DependentUpon>SaveProjectDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertiesView.xaml.cs">
+      <DependentUpon>PropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScopeView.xaml.cs">
+      <DependentUpon>ScopeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TablesView.xaml.cs">
+      <DependentUpon>TablesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\AnotherCommandImplementation.cs" />
+    <Compile Include="Views\Dialogs\NotEmptyValidationRule.cs" />
+    <Compile Include="Views\VisualEditor\DefaultConnectionView.xaml.cs">
+      <DependentUpon>DefaultConnectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\DefaultNodeListView.xaml.cs">
+      <DependentUpon>DefaultNodeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\DefaultNodeView.xaml.cs">
+      <DependentUpon>DefaultNodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\DefaultPendingConnectionView.xaml.cs">
+      <DependentUpon>DefaultPendingConnectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\DefaultPortView.xaml.cs">
+      <DependentUpon>DefaultPortView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Preview.xaml.cs">
+      <DependentUpon>Preview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\Editors\DataSetValueEditorView.xaml.cs">
+      <DependentUpon>DataSetValueEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\Editors\VoidValueEditorView.xaml.cs">
+      <DependentUpon>VoidValueEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\Editors\IntegerValueEditorView.xaml.cs">
+      <DependentUpon>IntegerValueEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\Editors\DataTableValueEditorView.xaml.cs">
+      <DependentUpon>DataTableValueEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualEditor\Editors\StringValueEditorView.xaml.cs">
+      <DependentUpon>StringValueEditorView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Plugins\Tools\Views\HistoryModifications.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AppSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\QuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\SaveProjectDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertiesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ScopeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TablesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\DefaultConnectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\DefaultNodeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\DefaultNodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\DefaultPendingConnectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\DefaultPortView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Preview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\Editors\DataSetValueEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VisualEditor\Editors\VoidValueEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VisualEditor\Editors\IntegerValueEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VisualEditor\Editors\DataTableValueEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VisualEditor\Editors\StringValueEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="AccuSchedule.UI_TemporaryKey.pfx" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccuSchedule.Shared\AccuSchedule.Shared.csproj">
+      <Project>{c0b000e8-ac60-417d-8e96-42a4b7cdc8bb}</Project>
+      <Name>AccuSchedule.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeNetworkToolkit\NodeNetworkToolkit.csproj">
+      <Project>{83a37a33-b14d-40a3-928c-a63f2f0d2d85}</Project>
+      <Name>NodeNetworkToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeNetwork\NodeNetwork.csproj">
+      <Project>{535f40e0-0d65-4dc8-b3f9-ab612100a16e}</Project>
+      <Name>NodeNetwork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="accuschedule.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugins\Tools\ViewModels\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,172 @@
+﻿<Controls:MetroWindow x:Class="AccuSchedule.UI.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                      xmlns:nodenetwork="clr-namespace:NodeNetwork.Views;assembly=NodeNetwork"
+                      Title="ACCUSCHEDULE"
+                      TitleAlignment="Right"
+                      Icon="accuschedule.ico"
+                      Loaded="MetroWindow_Loaded"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      WindowStartupLocation="Manual" Height="500" Width="700"
+                      xmlns:local="clr-namespace:AccuSchedule.UI.ViewModels.VisualEditor"
+                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                      xmlns:views="clr-namespace:AccuSchedule.UI.Views"
+                      xmlns:views1="clr-namespace:AccuSchedule.UI.Views.VisualEditor"
+                      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+                        TextElement.FontWeight="Regular"
+                        TextElement.FontSize="13"
+                        TextOptions.TextFormattingMode="Ideal" 
+                        TextOptions.TextRenderingMode="Auto"        
+                        Background="{DynamicResource MaterialDesignPaper}"
+                        FontFamily="{DynamicResource MaterialDesignFont}"
+                       Focusable="True"
+                      StateChanged="MetroWindow_StateChanged"
+                      LocationChanged="MetroWindow_LocationChanged">
+
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DialogHost.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
+
+    <Controls:MetroWindow.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainViewModel.ShowNodeChainCommand }" Executed="ContextItem_Click"/>
+    </Controls:MetroWindow.CommandBindings>
+
+    <Controls:MetroWindow.LeftWindowCommands>
+        
+        
+        <Controls:WindowCommands>
+            <Button Content="File" Click="MenuItem_Click">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="New Window" Click="ContextItem_Click" />
+                        <Separator />
+                        <MenuItem Header="Import Excel File" Click="ContextItem_Click" />
+                        <Separator />
+                        <MenuItem Header="Save" Click="ContextItem_Click" />
+                        <MenuItem Header="Load" Click="ContextItem_Click" />
+                        <Separator />
+                        <MenuItem x:Name="ShowNodeChain" Header="Display Selected Node Chain" IsCheckable="True" />
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="FileDocumentBoxSearchOutline" Width="24" Height="24" />
+                    <TextBox Name="txtSearch" Margin="4 0 0 0" VerticalAlignment="Center" GotFocus="txtSearch_GotFocus" LostFocus="txtSearch_LostFocus" KeyUp="txtSearch_KeyUp" />
+                    <Popup x:Name="popup" Width="100" Height="100" PlacementTarget="{Binding ElementName=txtSearch}" Placement="Bottom"
+                        StaysOpen="{Binding ElementName=text,Path=IsKeyboardFocused}">
+                    </Popup>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    
+    
+    <DockPanel>
+
+        <StatusBar BorderThickness="0,1,0,0" BorderBrush="{DynamicResource DisabledMenuItemForeground}" Height="30" DockPanel.Dock="Bottom" Background="{DynamicResource ControlBackgroundBrush}" Foreground="{DynamicResource DisabledMenuItemForeground}">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid ShowGridLines="True" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem Grid.Column="0" HorizontalAlignment="Left">
+                <TextBlock Name="lblStatus" Text="Status" />
+            </StatusBarItem>
+
+            <StatusBarItem Grid.Column="1" HorizontalAlignment="Right">
+                
+            </StatusBarItem>
+
+        </StatusBar>
+
+        
+        <Grid x:Name="RootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" Name="UpperSplitRow"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <views:TablesView x:Name="tables" Grid.Row="0"/>
+
+            <GridSplitter Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DragCompleted="UpperSplitter_DragCompleted" />
+            <materialDesign:DialogHost x:Name="dh" Grid.Row="2">
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" Name="LeftSplitter"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="Auto" Name="PropWidthLock" />
+                </Grid.ColumnDefinitions>
+                
+                
+                
+                <Grid Grid.Column="0">
+                    <views1:DefaultNodeListView x:Name="nodeList" Margin="0,0,0,36" />
+                </Grid>
+                
+                <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DragCompleted="LeftSplitter_DragCompleted" />
+                <nodenetwork:NetworkView x:Name="network" Grid.Column="2"/>
+                <GridSplitter Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DragCompleted="RightSplitter_DragCompleted" />
+                
+                <Grid Grid.Column="4" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" Name="PropWinHeight"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <!-- <views1:DefaultPreviewView Grid.Row="0" x:Name="codePreviewView"/> -->
+                    <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <StackPanel MinWidth="250">
+
+                                                       
+                            <TextBlock Text="Properties"/>
+
+                            <views:PropertiesView x:Name="props" />
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <GridSplitter Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DragCompleted="PropHeightSplitter_DragCompleted" />
+                    <!-- <views1:DefaultSimView Grid.Row="2" x:Name="codeSimView"/> -->
+                    <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock Text="Details" />
+
+                            <views:ScopeView x:Name="scope" />
+
+                        </StackPanel>
+                    </ScrollViewer>
+
+                </Grid>
+                
+            </Grid>
+            </materialDesign:DialogHost>
+        </Grid>
+        
+
+    </DockPanel>
+
+    
+
+</Controls:MetroWindow>
